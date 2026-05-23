@@ -7,7 +7,7 @@
 
 ## 🌐 Live Demo
 
-**API Base URL**:[ [https://devpulse-api.onrender.com](https://devpulse-api.onrender.com)](https://devpulse-o5ks.onrender.com/)
+**API Base URL**:(https://devpulse-o5ks.onrender.com/)
 
 ## 📋 Project Overview
 
