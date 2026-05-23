@@ -1,8 +1,13 @@
-import type { Request, Response, NextFunction } from 'express';
+import { type Request, type Response, type NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-export const globalErrorHandler = (
-  err: any,
+interface CustomError extends Error {
+  statusCode?: number;
+  errors?: Record<string, unknown> | unknown[]; 
+}
+
+export const errorMiddleware = (
+  err: CustomError,
   req: Request,
   res: Response,
   next: NextFunction
@@ -13,6 +18,6 @@ export const globalErrorHandler = (
   res.status(statusCode).json({
     success: false,
     message,
-    ...(err.errors && { errors: err.errors }),
+    ...(err.errors && typeof err.errors === 'object' ? { errors: err.errors } : {}),
   });
 };
